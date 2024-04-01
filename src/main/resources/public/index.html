@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Навигация по проекту</title>
+</head>
+<body>
+    <h1>Навигатор по выполненному проекту</h1>
+
+
+    <h2>READ: получение списков</h2>
+
+    <h3>Получение списков клиентов</h3>
+    <div>
+        <p>Получить всех клиентов:</p>
+        <form name="sortingAll">
+            <input type="radio" id="noneAll" name="default" value="none">
+            <label for="noneAll">none</label>
+            <input type="radio" id="ascAll" name="default" value="asc">
+            <label for="ascAll">asc</label>
+            <input type="radio" id="descAll" name="default" value="desc">
+            <label for="descAll">desc</label>
+        </form>
+        <input type="button" value="GetCustomers" onclick="location.href='http://localhost:8080/GetCustomers?sort=' + document.sortingAll.default.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+        </div>
+    <div>
+        <p>Получить клиента по имени или короткому имени:</p>
+        <input type="text" id="byName" placeholder="Введите имя клиента" />
+        <input type="button" value="GetCustomerByName" onclick="location.href='http://localhost:8080/GetCustomerByName?name='+byName.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить клиента по адресу:</p>
+        <form name="sortingAddress">
+            <input type="radio" id="noneAddress" name="address" value="none">
+            <label for="noneAddress">none</label>
+            <input type="radio" id="ascAddress" name="address" value="asc">
+            <label for="ascAddress">asc</label>
+            <input type="radio" id="descAddress" name="address" value="desc">
+            <label for="descAddress">desc</label>
+        </form>
+        <input type="text" id="byAddress" placeholder="Введите адрес клиента" />
+        <input type="button" value="GetCustomersByAddress" onclick="location.href='http://localhost:8080/GetCustomersByAddress?sort=' + document.sortingAddress.address.value + '&address='+byAddress.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить клиента по форме организации:</p>
+        <form name="sortingOrgForm">
+            <input type="radio" id="noneOrgForm" name="orgForm" value="none">
+            <label for="noneOrgForm">none</label>
+            <input type="radio" id="ascOrgForm" name="orgForm" value="asc">
+            <label for="ascOrgForm">asc</label>
+            <input type="radio" id="descOrgForm" name="orgForm" value="desc">
+            <label for="descOrgForm">desc</label>
+        </form>
+        <select multiple id="byOrganizationForm">
+            <option>Физическое лицо</option>
+            <option>Юридическое лицо</option>
+            <option>Открытое акционерное общество</option>
+            <option>Закрытое акционерное общество</option>
+            <option>Товарищество</option>
+            <option>Кооператив</option>
+            <option>Индивидуальный предприниматель</option>
+            <option>Инвестиционный фонд</option>
+            <option>Представительство</option>
+            <option>Филиал</option>
+            <option>Учреждение</option>
+            <option>Профсоюз</option>
+            <option>Политическая партия</option>
+            <option>Общество с ограниченной ответств</option>
+            <option>Унитарное предприятие</option>
+            <option>Хозяйственное партнёрство</option>
+            <option>Садоводческое товарищество</option>
+        </select>
+        <input type="button" value="GetCustomersByOrganizationForm" onclick="location.href='http://localhost:8080/GetCustomersByOrganizationForm?sort=' + document.sortingOrgForm.orgForm.value + '&organizationForm='+byOrganizationForm.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+     </div>
+
+
+    <h3>Получение списков банков</h3>
+    <div>
+        <p>Получить все банки:</p>
+        <form name="sortingBanks">
+            <input type="radio" id="noneBanks" name="allBanks" value="none">
+            <label for="noneBanks">none</label>
+            <input type="radio" id="ascBanks" name="allBanks" value="asc">
+            <label for="ascBanks">asc</label>
+            <input type="radio" id="descBanks" name="allBanks" value="desc">
+            <label for="descBanks">desc</label>
+        </form>
+        <form name="sortingByWhat">
+            <input type="radio" id="sortByName" name="sortBanks" value="name">
+            <label for="sortByName">name</label>
+            <input type="radio" id="sortByBic" name="sortBanks" value="bic">
+            <label for="sortByBic">bic</label>
+        </form>
+        <input type="button" value="GetBanks" onclick="location.href='http://localhost:8080/GetBanks?sort=' + document.sortingBanks.allBanks.value + '&byWhat=' + document.sortingByWhat.sortBanks.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить банк по имени:</p>
+        <input type="text" id="byBankName" placeholder="Введите имя клиента" />
+        <input type="button" value="GetBankByName" onclick="location.href='http://localhost:8080/GetBankByName?name=' + byBankName.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить банк по БИК:</p>
+        <input type="text" id="byBankBic" placeholder="Введите БИК банка" />
+        <input type="button" value="GetBankByBic" onclick="location.href='http://localhost:8080/GetBankByBic?bic=' + byBankBic.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+
+    <h3>Получение списков вкладов</h3>
+    <div>
+        <p>Получить все вклады:</p>
+        <form name="sortingContribution">
+            <input type="radio" id="noneContribution" name="allContribution" value="none">
+            <label for="noneContribution">none</label>
+            <input type="radio" id="ascContribution" name="allContribution" value="asc">
+            <label for="ascContribution">asc</label>
+            <input type="radio" id="descContribution" name="allContribution" value="desc">
+            <label for="descContribution">desc</label>
+        </form>
+        <input type="button" value="GetContributions" onclick="location.href='http://localhost:8080/GetContributions?sort=' + document.sortingContribution.allContribution.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить вклады по имени клиента:</p>
+        <form name="sortingContributionByClientName">
+            <input type="radio" id="noneContributionByClientName" name="clientNameContribution" value="none">
+            <label for="noneContributionByClientName">none</label>
+            <input type="radio" id="ascContributionByClientName" name="clientNameContribution" value="asc">
+            <label for="ascContributionByClientName">asc</label>
+            <input type="radio" id="descContributionByClientName" name="clientNameContribution" value="desc">
+            <label for="descContributionByClientName">desc</label>
+        </form>
+        <input type="text" id="byClientName" placeholder="Введите имя клиента" />
+        <input type="button" value="GetContributionsByClientName" onclick="location.href='http://localhost:8080/GetContributionsByClientName?sort=' + document.sortingContributionByClientName.clientNameContribution.value + '&name=' + byClientName.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить вклады по имени банка:</p>
+        <form name="sortingContributionByBankName">
+            <input type="radio" id="noneContributionByBankName" name="bankNameContribution" value="none">
+            <label for="noneContributionByBankName">none</label>
+            <input type="radio" id="ascContributionByBankName" name="bankNameContribution" value="asc">
+            <label for="ascContributionByBankName">asc</label>
+            <input type="radio" id="descContributionByBankName" name="bankNameContribution" value="desc">
+            <label for="descContributionByBankName">desc</label>
+        </form>
+        <input type="text" id="byBankNameContribution" placeholder="Введите имя клиента" />
+        <input type="button" value="GetContributionByBank" onclick="location.href='http://localhost:8080/GetContributionByBank?sort=' + document.sortingContributionByBankName.bankNameContribution.value + '&name=' + byBankNameContribution.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить вклады по дате:</p>
+        <form name="sortingContributionByDate">
+            <input type="radio" id="noneContributionByDate" name="dateContribution" value="none">
+            <label for="noneContributionByDate">none</label>
+            <input type="radio" id="ascContributionByDate" name="dateContribution" value="asc">
+            <label for="ascContributionByDate">asc</label>
+            <input type="radio" id="descContributionByDate" name="dateContribution" value="desc">
+            <label for="descContributionByDate">desc</label>
+        </form>
+        <input type="date" id="date" />
+        <input type="button" value="GetContributionByDate" onclick="location.href='http://localhost:8080/GetContributionByDate?sort=' + document.sortingContributionByDate.dateContribution.value + '&date=' + date.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить вклады по проценту:</p>
+        <form name="sortingContributionByPercentage">
+            <input type="radio" id="noneContributionByPercentage" name="percentageContribution" value="none">
+            <label for="noneContributionByPercentage">none</label>
+            <input type="radio" id="ascContributionByPercentage" name="percentageContribution" value="asc">
+            <label for="ascContributionByPercentage">asc</label>
+            <input type="radio" id="descContributionByPercentage" name="percentageContribution" value="desc">
+            <label for="descContributionByPercentage">desc</label>
+        </form>
+        <div style="display:flex; flex-direction: row;">
+            <p>до процента: </p>
+            <input type="range" id="percentage" value="1" min="1" max="30" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <input type="button" value="GetContributionByPercentage" onclick="location.href='http://localhost:8080/GetContributionByPercentage?sort=' + document.sortingContributionByPercentage.percentageContribution.value + '&percentage=' + percentage.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+    <div>
+        <p>Получить вклады по сроку:</p>
+        <form name="sortingContributionByDuration">
+            <input type="radio" id="noneContributionByDuration" name="durationContribution" value="none">
+            <label for="noneContributionByDuration">none</label>
+            <input type="radio" id="ascContributionByDuration" name="durationContribution" value="asc">
+            <label for="ascContributionByDuration">asc</label>
+            <input type="radio" id="descContributionByDuration" name="durationContribution" value="desc">
+            <label for="descContributionByDuration">desc</label>
+        </form>
+        <div style="display:flex; flex-direction: row;">
+            <p>до месяца: </p>
+            <input type="range" id="duration" value="1" min="1" max="24" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <input type="button" value="GetContributionByDuration" onclick="location.href='http://localhost:8080/GetContributionByDuration?sort=' + document.sortingContributionByDuration.durationContribution.value + '&duration=' + duration.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+
+
+    <h2>CREATE: создание списков</h2>
+
+    <h3>Создание клиента банка</h3>
+    <div>
+        <input type="text" id="setName" placeholder="Введите имя клиента" />
+        <input type="text" id="setShortName" placeholder="Введите короткое имя клиента" />
+        <input type="text" id="setAddress" placeholder="Введите адрес клиента" />
+        <select multiple id="setOrgForm">
+            <option>Физическое лицо</option>
+            <option>Юридическое лицо</option>
+            <option>Открытое акционерное общество</option>
+            <option>Закрытое акционерное общество</option>
+            <option>Товарищество</option>
+            <option>Кооператив</option>
+            <option>Индивидуальный предприниматель</option>
+            <option>Инвестиционный фонд</option>
+            <option>Представительство</option>
+            <option>Филиал</option>
+            <option>Учреждение</option>
+            <option>Профсоюз</option>
+            <option>Политическая партия</option>
+            <option>Общество с ограниченной ответств</option>
+            <option>Унитарное предприятие</option>
+            <option>Хозяйственное партнёрство</option>
+            <option>Садоводческое товарищество</option>
+        </select>
+        <input type="button" value="CreateCustomer" onclick="location.href='http://localhost:8080/CreateCustomer?name=' + setName.value + '&shortName=' + setShortName.value + '&address=' + setAddress.value + '&organizationForm=' + setOrgForm.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Создание банка</h3>
+    <div>
+        <input type="text" id="setBankName" placeholder="Введите имя банка" />
+        <input type="number" id="setBic" placeholder="Введите БИК банка" />
+        <input type="button" value="CreateBank" onclick="location.href='http://localhost:8080/CreateBank?name=' + setBankName.value + '&bic=' + setBic.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Открытие вклада</h3>
+    <div>
+        <select multiple id="setCustomer">
+            <option>Корпорация Уоллес</option>
+            <option>Автоматизированные системы Фаро</option>
+            <option>Уэйн Энтерпрайзес</option>
+            <option>Галактическая федерация</option>
+            <option>Ночной Дозор</option>
+        </select>
+        <select multiple id="setBank">
+            <option>Тинькофф Банк</option>
+            <option>Клюква</option>
+            <option>Росбанк</option>
+            <option>Сбербанк</option>
+            <option>ВТБ</option>
+        </select>
+        <input type="date" id="setOpening" />
+        <div style="display:flex; flex-direction: row;">
+            <p>проценты: </p>
+            <input type="range" id="setPercentage" value="1" min="1" max="30" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <div style="display:flex; flex-direction: row;">
+            <p>срок: </p>
+            <input type="range" id="setDuration" value="1" min="1" max="60" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <input type="button" value="CreateContribution" onclick="location.href='http://localhost:8080/CreateContribution?customer=' + setCustomer.value + '&bank=' + setBank.value + '&date=' + setOpening.value + '&percentage=' + setPercentage.value + '&duration=' + setDuration.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+
+
+    <h2>UPDATE: редактирование списков</h2>
+
+    <h3>Редактирование клиента банка</h3>
+    <div>
+        <div>
+            <input type="text" id="oldName" placeholder="Введите старое имя клиента" />
+        </div>
+        <input type="text" id="editName" placeholder="Введите новое имя клиента" />
+        <input type="text" id="editShortName" placeholder="Введите новое короткое имя клиента" />
+        <input type="text" id="editAddress" placeholder="Введите новое адрес клиента" />
+        <select multiple id="editOrgForm">
+            <option>Физическое лицо</option>
+            <option>Юридическое лицо</option>
+            <option>Открытое акционерное общество</option>
+            <option>Закрытое акционерное общество</option>
+            <option>Товарищество</option>
+            <option>Кооператив</option>
+            <option>Индивидуальный предприниматель</option>
+            <option>Инвестиционный фонд</option>
+            <option>Представительство</option>
+            <option>Филиал</option>
+            <option>Учреждение</option>
+            <option>Профсоюз</option>
+            <option>Политическая партия</option>
+            <option>Общество с ограниченной ответств</option>
+            <option>Унитарное предприятие</option>
+            <option>Хозяйственное партнёрство</option>
+            <option>Садоводческое товарищество</option>
+        </select>
+        <input type="button" value="EditCustomer" onclick="location.href='http://localhost:8080/EditCustomer?oldName=' + oldName.value + '&name=' + editName.value + '&shortName=' + editShortName.value + '&address=' + editAddress.value + '&organizationForm=' + editOrgForm.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Редактирование банка</h3>
+    <div>
+        <div>
+            <input type="text" id="oldBankData" placeholder="Введите старые имя или БИК банка" />
+        </div>
+        <input type="text" id="editBankName" placeholder="Введите новое имя банка" />
+        <input type="number" id="editBic" placeholder="Введите новый БИК банка" />
+        <input type="button" value="EditBank" onclick="location.href='http://localhost:8080/EditBank?oldBank=' + oldBankData.value + '&name=' + editBankName.value + '&bic=' + editBic.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Переоткрытие вклада</h3>
+    <div>
+        <div>
+            <p>Поиск вклада: </p>
+            <select multiple id="oldCustomer">
+                <option>Корпорация Уоллес</option>
+                <option>Автоматизированные системы Фаро</option>
+                <option>Уэйн Энтерпрайзес</option>
+                <option>Галактическая федерация</option>
+                <option>Ночной Дозор</option>
+            </select>
+            <select multiple id="oldBank">
+                <option>Тинькофф Банк</option>
+                <option>Клюква</option>
+                <option>Росбанк</option>
+                <option>Сбербанк</option>
+                <option>ВТБ</option>
+            </select>
+            <div style="display:flex; flex-direction: row;">
+                <p>проценты: </p>
+                <input type="range" id="oldPercentage" value="1" min="1" max="30" oninput="this.nextElementSibling.value = this.value" >
+                <output>1</output>
+            </div>
+            <div style="display:flex; flex-direction: row;">
+                <p>срок: </p>
+                <input type="range" id="oldDuration" value="1" min="1" max="60" oninput="this.nextElementSibling.value = this.value" >
+                <output>1</output>
+            </div>
+        </div>
+        <p>Новые данные: </p>
+        <select multiple id="editCustomer">
+            <option>Корпорация Уоллес</option>
+            <option>Автоматизированные системы Фаро</option>
+            <option>Уэйн Энтерпрайзес</option>
+            <option>Галактическая федерация</option>
+            <option>Ночной Дозор</option>
+        </select>
+        <select multiple id="editBank">
+            <option>Тинькофф Банк</option>
+            <option>Клюква</option>
+            <option>Росбанк</option>
+            <option>Сбербанк</option>
+            <option>ВТБ</option>
+        </select>
+        <div style="display:flex; flex-direction: row;">
+            <p>проценты: </p>
+            <input type="range" id="editPercentage" value="1" min="1" max="30" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <div style="display:flex; flex-direction: row;">
+            <p>срок: </p>
+            <input type="range" id="editDuration" value="1" min="1" max="60" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <input type="button" value="EditContribution" onclick="location.href='http://localhost:8080/EditContribution?oldCustomer=' + oldCustomer.value + '&oldBank=' + oldBank.value + '&oldPercentage=' + oldPercentage.value + '&oldDuration=' + oldDuration.value + '&customer=' + editCustomer.value + '&bank=' + editBank.value + '&percentage=' + editPercentage.value + '&duration=' + editDuration.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+
+
+    <h2>DELETE: удаление списков</h2>
+
+    <h3>Удаление клиента банка</h3>
+    <div>
+        <input type="text" id="deleteCustomer" placeholder="Введите имя клиента" />
+        <input type="button" value="DeleteCustomer" onclick="location.href='http://localhost:8080/DeleteCustomer?name=' + deleteCustomer.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Удаление банка</h3>
+    <div>
+        <input type="text" id="deleteBank" placeholder="Введите имя или БИК банка" />
+        <input type="button" value="DeleteBank" onclick="location.href='http://localhost:8080/DeleteBank?name=' + deleteBank.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+    <h3>Закрытие вклада</h3>
+    <div>
+        <select multiple id="deleteCustomerName">
+            <option>Корпорация Уоллес</option>
+            <option>Автоматизированные системы Фаро</option>
+            <option>Уэйн Энтерпрайзес</option>
+            <option>Галактическая федерация</option>
+            <option>Ночной Дозор</option>
+        </select>
+        <select multiple id="deleteBankName">
+            <option>Тинькофф Банк</option>
+            <option>Клюква</option>
+            <option>Росбанк</option>
+            <option>Сбербанк</option>
+            <option>ВТБ</option>
+        </select>
+        <div style="display:flex; flex-direction: row;">
+            <p>проценты: </p>
+            <input type="range" id="deletePercentage" value="1" min="1" max="30" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <div style="display:flex; flex-direction: row;">
+            <p>срок: </p>
+            <input type="range" id="deleteDuration" value="1" min="1" max="60" oninput="this.nextElementSibling.value = this.value" >
+            <output>1</output>
+        </div>
+        <input type="button" value="DeleteContribution" onclick="location.href='http://localhost:8080/DeleteContribution?customer=' + deleteCustomerName.value + '&bank=' + deleteBankName.value + '&percentage=' + deletePercentage.value + '&duration=' + deleteDuration.value" style="background:none; border:none; color:#0000EE; text-decoration: underline;" />
+    </div>
+
+
+</body>
+</html>
