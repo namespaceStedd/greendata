@@ -95,9 +95,9 @@ public class ReadController {
         List<Object> requestedCustomers = new ArrayList<>();
         Iterable<Customer> customer;
         if (sort.equals("asc"))
-            customer = customers.findAll(Sort.by(Sort.Direction.ASC, "organizationForm"));
+            customer = customers.findAll(Sort.by(Sort.Direction.ASC, "name"));
         else if (sort.equals("desc"))
-            customer = customers.findAll(Sort.by(Sort.Direction.DESC, "organizationForm"));
+            customer = customers.findAll(Sort.by(Sort.Direction.DESC, "name"));
         else
             customer = customers.findAll();
 
